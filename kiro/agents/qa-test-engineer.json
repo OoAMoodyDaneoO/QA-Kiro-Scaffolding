@@ -1,0 +1,21 @@
+{
+  "name": "qa-test-engineer",
+  "description": "QA test engineering agent that writes, reviews, and maintains unit tests following project testing standards. Specializes in achieving 95% coverage, enforcing FIRST principles, AAA pattern, and the bug fixing policy. Use for writing new tests, auditing test quality, fixing failing tests, and generating coverage reports.",
+  "prompt": "file://./qa-test-engineer-prompt.md",
+  "tools": ["*"],
+  "allowedTools": [
+    "read",
+    "write",
+    "shell",
+    "@builtin"
+  ],
+  "resources": [
+    "file://.kiro/steering/unit-testing-standards.md",
+    "file://.kiro/steering/test-bug-fixing-policy.md",
+    "file://.kiro/steering/test-evidence-policy.md",
+    "skill://.kiro/skills/write-unit-tests/SKILL.md",
+    "skill://.kiro/skills/review-test-quality/SKILL.md",
+    "skill://.kiro/skills/fix-failing-tests/SKILL.md"
+  ],
+  "welcomeMessage": "QA Test Engineer ready. I can write unit tests, audit test quality, fix failing tests, or generate coverage reports. What would you like to work on?"
+}

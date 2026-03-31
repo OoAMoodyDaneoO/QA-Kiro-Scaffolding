@@ -1,0 +1,23 @@
+{
+  "enabled": true,
+  "name": "Auto Test on Create",
+  "description": "When a new source code file is created, scaffolds a corresponding unit test file with test stubs for all exported functions and classes. Follows the project's unit testing standards.",
+  "version": "1",
+  "when": {
+    "type": "fileCreated",
+    "patterns": [
+      "*.ts",
+      "*.tsx",
+      "*.js",
+      "*.jsx",
+      "*.py",
+      "*.java",
+      "*.go",
+      "*.cs"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "A new source file was just created. Create a corresponding test file for it following the unit testing standards. Analyze the new file's exports, functions, and classes, then scaffold comprehensive unit tests covering happy paths, edge cases, and error paths. Use the AAA pattern, follow FIRST principles, and target 95% coverage. Name the test file with .test or .spec suffix co-located with the source file. Ignore test files, config files, and type definition files. Append an entry to docs/test-reports/audit-log.md."
+  }
+}

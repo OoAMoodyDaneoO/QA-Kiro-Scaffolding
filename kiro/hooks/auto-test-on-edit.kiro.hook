@@ -1,0 +1,23 @@
+{
+  "enabled": true,
+  "name": "Auto Test on Edit",
+  "description": "When a source code file is saved, checks if the changed code has corresponding unit tests and creates or updates them to maintain coverage. Follows the project's unit testing standards (FIRST principles, AAA pattern, 95% coverage target).",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "*.ts",
+      "*.tsx",
+      "*.js",
+      "*.jsx",
+      "*.py",
+      "*.java",
+      "*.go",
+      "*.cs"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "A source file was just edited. Check if this file has a corresponding test file. If not, create one following the unit testing standards (FIRST principles, AAA pattern). If a test file exists, review whether the tests still cover the changed code — if new functions, branches, or logic were added, add tests for them. Do NOT modify existing passing tests unless they test removed code. Follow the test evidence policy and append an entry to docs/test-reports/audit-log.md. Ignore test files, config files, and type definition files."
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "name": "Generate Test Coverage Report",
+  "description": "Manually triggered hook that runs the full test suite with coverage, generates a timestamped coverage report and gap analysis, and saves them to docs/test-reports/. Also updates the audit log.",
+  "version": "1",
+  "when": {
+    "type": "userTriggered"
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Generate a comprehensive test coverage report for this project. Steps: 1) Detect the project's test framework and coverage tool from config files. 2) Run the full test suite with coverage enabled. 3) Parse the coverage output. 4) Create a timestamped coverage report at docs/test-reports/coverage/[ISO-8601-timestamp].md following the format in the test evidence policy (include summary table, files below threshold, critical path coverage, uncovered lines). 5) Copy the report to docs/test-reports/coverage/latest.md. 6) Scan the codebase for untested modules and exports, then create a gap analysis report at docs/test-reports/gap-analysis/[ISO-8601-timestamp].md. 7) Append entries to docs/test-reports/audit-log.md for both the coverage report and gap analysis. Create the docs/test-reports directory structure if it doesn't exist."
+  }
+}
